@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Қой-ешкі кезегі</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 15px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-size: 16px;
+    }
+
+    td {
+      font-size: 14px;
+    }
+
+    .today {
+      background-color: #f4f4f9;
+      color: green;
+      font-weight: bold;
+    }
+
+    .note {
+      font-size: 16px;
+      font-weight: bold;
+      color: #e74c3c;
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Қой-ешкі кезегі</h1>
+    <p class="note">Бүгінгі кезек кімде екенін қараңыз! Қазір осы кесте бойынша сәйкес күндегі адам көрінеді.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>№</th>
+          <th>Аты-жөні</th>
+          <th>Күні</th>
+        </tr>
+      </thead>
+      <tbody id="round2">
+        <tr><td>1</td><td>Темірлан</td><td>16.05.25</td></tr>
+        <tr><td>2</td><td>Бауыржан</td><td>17.05.25</td></tr>
+        <tr><td>3</td><td>Боранбай</td><td>18.05.25</td></tr>
+        <tr><td>4</td><td>Нұрлан</td><td>19.05.25</td></tr>
+        <tr><td>5</td><td>Мейрам</td><td>20.05.25</td></tr>
+        <tr><td>6</td><td>Марат</td><td>21.05.25</td></tr>
+        <tr><td>7</td><td>Қайрат</td><td>22.05.25</td></tr>
+        <tr><td>8</td><td>Нұртай</td><td>23.05.25</td></tr>
+        <tr><td>9</td><td>Шәмші</td><td>24.05.25</td></tr>
+        <tr><td>10</td><td>Қуаныш</td><td>25.05.25</td></tr>
+        <tr><td>11</td><td>Тұрар</td><td>26.05.25</td></tr>
+        <tr><td>12</td><td>Ерка</td><td>27.05.25</td></tr>
+        <tr><td>13</td><td>Ғалымжан</td><td>28.05.25</td></tr>
+        <tr><td>14</td><td>Дәлел</td><td>29.05.25</td></tr>
+        <tr><td>15</td><td>Болат</td><td>30.05.25</td></tr>
+        <tr><td>16</td><td>Олжас</td><td>31.05.25</td></tr>
+        <tr><td>17</td><td>Сайко</td><td>01.06.25</td></tr>
+        <tr><td>18</td><td>Бірлік</td><td>02.06.25</td></tr>
+        <tr><td>19</td><td>Берікбай</td><td>03.06.25</td></tr>
+        <tr><td>20</td><td>Манас</td><td>04.06.25</td></tr>
+        <tr><td>21</td><td>Аблай</td><td>05.06.25</td></tr>
+        <tr><td>22</td><td>Мая</td><td>06.06.25</td></tr>
+        <tr><td>23</td><td>Салауат</td><td>07.06.25</td></tr>
+        <tr><td>24</td><td>Аблай.Т</td><td>08.06.25</td></tr>
+        <tr><td>25</td><td>Жанғабыл</td><td>09.06.25</td></tr>
+        <tr><td>26</td><td>Кара</td><td>10.06.25</td></tr>
+        <tr><td>27</td><td>Тәмен</td><td>11.06.25</td></tr>
+        <tr><td>28</td><td>Жорка</td><td>12.06.25</td></tr>
+        <tr><td>29</td><td>Мырзағали</td><td>13.06.25</td></tr>
+        <tr><td>30</td><td>Арман</td><td>14.06.25</td></tr>
+        <tr><td>31</td><td>Көпскүл</td><td>15.06.25</td></tr>
+        <tr><td>32</td><td>Серік</td><td>16.06.25</td></tr>
+        <tr><td>33</td><td>Ерлан</td><td>17.06.25</td></tr>
+        <tr><td>34</td><td>Есенгелді</td><td>18.06.25</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function highlightToday() {
+      const rows = document.getElementById("round2").getElementsByTagName("tr");
+      const today = new Date();
+      const day = ("0" + today.getDate()).slice(-2); // Оң жақтан екі цифр
+      const month = ("0" + (today.getMonth() + 1)).slice(-2); // Айды 1-ден санау
+      const year = today.getFullYear().toString().slice(-2); // Жылдың соңғы екі цифры
+      const todayDate = `${day}.${month}.${year}`;
+
+      for (let row of rows) {
+        const dateCell = row.cells[2];
+        if (dateCell && dateCell.textContent.trim() === todayDate) {
+          row.classList.add("today");
+          row.cells[2].textContent += " – Кезек бүгін осы адамда!";
+        }
+      }
+    }
+
+    highlightToday(); // Кезекті анықтау
+  </script>
+
+</body>
+</html>
